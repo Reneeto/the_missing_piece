@@ -45,7 +45,6 @@ def get_sale_puzzle_info(urls):
             try:
                 page = requests.get(urls[website] ,params=f"page={counter}", timeout=10)
             except requests.exceptions.RequestException as e:
-                # is sys.exit right for this except block? if one page can't be requested, do I want to continue?
                 print(e)
             soup = BeautifulSoup(page.content, "html.parser")
 
