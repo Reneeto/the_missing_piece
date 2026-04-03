@@ -14,6 +14,7 @@ puzzle_store_urls = {
     "ravensburger": "https://www.ravensburger.us/en-US/products/sale/sale-puzzles"
 }
 
+
 def main():
     user_input = input("Would you like to find sale puzzles on Buffalo, Ravensburger, or both? ").lower().strip()
     while True:
@@ -33,14 +34,14 @@ def main():
     PDF.create_puzzle_sales_pdf()
 
 
-# TODO: split up this monster function
 def get_sale_puzzle_info(urls):
     if not urls:
         sys.exit("something went wrong:(")
     sale_puzzles = []
     for website in urls:
         counter = 1
-        while True:
+        # while True:
+        while counter < 2:
             try:
                 page = requests.get(urls[website] ,params=f"page={counter}", timeout=10)
             except requests.exceptions.RequestException as e:
@@ -65,7 +66,7 @@ def get_sale_puzzle_info(urls):
             counter += 1
     return sale_puzzles
 
-#also kind of a monster function - hard to test
+
 def store_puzzle_info(products):
     if not products:
         sys.exit("something went wrong:(")
@@ -113,7 +114,6 @@ def get_puzzle_img(puzzle):
         return img_name
     else:
         return get_url
-
 
 
 def find_puzzle_name(puzzle):
