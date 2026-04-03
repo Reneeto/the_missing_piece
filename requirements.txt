@@ -1,0 +1,4 @@
+requests
+PIL
+bs4
+fpdf2
