@@ -40,7 +40,9 @@ def get_sale_puzzle_info(urls):
     sale_puzzles = []
     for website in urls:
         counter = 1
+        ## for ALL sale puzzle pages - you will get ~50 pages of puzzles
         # while True:
+        ## for just the first pages of each website
         while counter < 2:
             try:
                 page = requests.get(urls[website] ,params=f"page={counter}", timeout=10)

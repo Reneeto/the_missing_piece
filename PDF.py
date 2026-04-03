@@ -1,5 +1,4 @@
 from fpdf import FPDF
-from fpdf.enums import Align, WrapMode
 from csv import DictReader
 
 
